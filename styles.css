@@ -1,34 +1,3 @@
-/* Message défilant */
-#scrolling-message {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px;
-    font-size: 1.2em;
-    text-align: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    animation: scrollMessage 10s linear infinite;
-    display: none; /* Masquer par défaut */
-}
-
-/* Animation pour faire défiler le message */
-@keyframes scrollMessage {
-    0% {
-        transform: translateX(100%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-/* Lorsque la connexion est réussie, le message défilant est affiché */
-#dashboard.logged-in #scrolling-message {
-    display: block; /* Afficher le message uniquement après la connexion */
-}
-
 /* Style global */
 body {
     font-family: Arial, sans-serif;
