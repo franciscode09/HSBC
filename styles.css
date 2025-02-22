@@ -11,6 +11,7 @@
     width: 100%;
     z-index: 1000;
     animation: scrollMessage 10s linear infinite;
+    display: none; /* Masquer par défaut */
 }
 
 /* Animation pour faire défiler le message */
@@ -21,6 +22,11 @@
     100% {
         transform: translateX(-100%);
     }
+}
+
+/* Lorsque la connexion est réussie, le message défilant est affiché */
+#dashboard.logged-in #scrolling-message {
+    display: block; /* Afficher le message uniquement après la connexion */
 }
 
 /* Style global */
