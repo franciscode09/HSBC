@@ -6,29 +6,59 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Section de connexion */
-#login-section {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #e4e4e4;
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Style du formulaire de connexion */
 .login-container {
     background-color: white;
-    padding: 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 50px auto;
+    padding: 20px;
     border-radius: 10px;
-    text-align: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 300px;
+    text-align: center;
 }
 
-.login-container h2 {
-    margin-bottom: 20px;
+h2 {
+    color: #2c3e50;
 }
 
-input[type="text"], input[type="password"] {
+input[type="text"], input[type="password"], input[type="number"] {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
@@ -39,27 +69,20 @@ input[type="text"], input[type="password"] {
 button {
     width: 100%;
     padding: 10px;
-    background-color: #4CAF50;
+    background-color: #3498db;
     color: white;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #2980b9;
 }
 
-/* Message d'erreur */
-.error-message {
-    color: red;
-    font-size: 1.1em;
-}
-
-/* Tableau de bord - visible après connexion */
+/* Tableau de bord */
 .dashboard {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: white;
     margin: 50px auto;
     padding: 20px;
     border-radius: 10px;
@@ -67,67 +90,45 @@ button:hover {
     width: 70%;
 }
 
-/* Container des informations personnelles et bancaires */
-.user-info {
-    display: flex;
-    justify-content: space-between;
+.dashboard .account-info {
     margin-bottom: 20px;
 }
 
-/* Information personnelle (à gauche) */
-.personal-info {
-    width: 45%;
-}
-
-/* Information bancaire (à droite) */
-.bank-info {
-    width: 45%;
-    text-align: right;
-}
-
-/* Tableau des transactions */
 table {
     width: 100%;
+    margin-top: 20px;
     border-collapse: collapse;
-    margin-bottom: 20px;
+}
+
+table, th, td {
+    border: 1px solid #ccc;
 }
 
 th, td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
 }
 
-/* Bas de page */
-.bottom-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 1.2em;
-    margin-top: 20px;
+th {
+    background-color: #f2f2f2;
 }
 
-/* Date et heure à gauche */
-.bottom-left {
-    font-size: 1em;
+.hidden {
+    display: none;
 }
 
-/* Solde à droite en grand */
-.bottom-right {
-    font-size: 2em;
-    font-weight: bold;
+/* Section de virement */
+.transfer {
+    background-color: white;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
 }
 
-/* Erreurs de virement */
 .error-message {
     color: red;
-    font-size: 1.1em;
+    font-size: 14px;
     margin-top: 10px;
-}
-
-/* Formulaire de virement */
-.transfer form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
