@@ -7,56 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Section de connexion -->
-    <section id="login-section">
-        <div class="login-container">
-            <h2>Se connecter</h2>
-            <form id="loginForm" onsubmit="return validateLogin()">
-                <label for="username">Nom d'utilisateur :</label>
-                <input type="text" id="username" name="username" required>
-
-                <label for="password">Mot de passe :</label>
-                <input type="password" id="password" name="password" required>
-
-                <button type="submit">Se connecter</button>
-            </form>
-            <p id="error-message" class="error-message"></p> <!-- Message d'erreur de connexion -->
+    <header>
+        <div class="logo">
+            <h1>Banque en ligne</h1>
         </div>
-    </section>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Tableau de bord</a></li>
+                <li><a href="#transactions">Transactions</a></li>
+                <li><a href="#transfer" onclick="showTransferForm()">Virement</a></li> <!-- Onglet Virement cliquable -->
+                <li><a href="#logout" onclick="logout()">Se déconnecter</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Section du tableau de bord (visible après connexion) -->
-    <section id="dashboard" class="dashboard hidden">
-        <header>
-            <div class="logo">
-                <h1>Banque en ligne</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#dashboard">Tableau de bord</a></li>
-                    <li><a href="#transactions">Transactions</a></li>
-                    <li><a href="#transfer" onclick="showTransferForm()">Virement</a></li>
-                    <li><a href="#logout" onclick="logout()">Se déconnecter</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <main>
+    <main>
+        <!-- Tableau de bord - visible après connexion -->
+        <section id="dashboard" class="dashboard hidden">
             <h2>Bienvenue, <span id="accountName">Utilisateur</span></h2>
-            
-            <div class="user-info">
-                <div class="personal-info">
-                    <p><strong>Nom :</strong> <span id="lastName">Dupont</span></p>
-                    <p><strong>Prénom :</strong> <span id="firstName">Jean</span></p>
-                    <p><strong>Date de naissance :</strong> <span id="birthDate">01/01/1990</span></p>
-                    <p><strong>Sexe :</strong> <span id="gender">Masculin</span></p>
-                    <p><strong>Ville :</strong> <span id="city">Paris</span></p>
-                    <p><strong>Nationalité :</strong> <span id="nationality">Française</span></p>
-                </div>
-
-                <div class="bank-info">
-                    <p><strong>Numéro de compte :</strong> <span id="accountNumber">1234567890</span></p>
-                    <p><strong>RIB :</strong> <span id="rib">FR76 1234 5678 9876 5432 1234 567</span></p>
-                </div>
+            <div class="account-info">
+                <p><strong>Nom :</strong> <span id="lastName">Dupont</span></p>
+                <p><strong>Prénom :</strong> <span id="firstName">Jean</span></p>
+                <p><strong>Date de naissance :</strong> <span id="birthDate">01/01/1990</span></p>
+                <p><strong>Sexe :</strong> <span id="gender">Masculin</span></p>
+                <p><strong>Ville :</strong> <span id="city">Paris</span></p>
+                <p><strong>Nationalité :</strong> <span id="nationality">Française</span></p>
+                <p><strong>Solde actuel :</strong> <span id="balance">1000 €</span></p>
+                <p><strong>Numéro de compte :</strong> <span id="accountNumber">1234567890</span></p>
+                <p><strong>Date et Heure :</strong> <span id="currentDateTime">Chargement...</span></p>
             </div>
 
             <h3>Transactions récentes :</h3>
@@ -86,29 +64,23 @@
                     </tr>
                 </tbody>
             </table>
+        </section>
 
-            <!-- Date et heure en bas à gauche, Solde en bas à droite -->
-            <div class="bottom-info">
-                <p id="currentDateTime" class="bottom-left">Chargement...</p>
-                <p id="balance" class="bottom-right">1000 €</p>
-            </div>
-        </main>
-    </section>
+        <!-- Section de virement -->
+        <section id="transfer" class="transfer hidden">
+            <h3>Effectuer un virement</h3>
+            <form id="transferForm" onsubmit="return handleTransfer()">
+                <label for="recipient">Destinataire :</label>
+                <input type="text" id="recipient" name="recipient" placeholder="Nom du destinataire" required>
 
-    <!-- Section de virement -->
-    <section id="transfer" class="transfer hidden">
-        <h3>Effectuer un virement</h3>
-        <form id="transferForm" onsubmit="return handleTransfer()">
-            <label for="recipient">Destinataire :</label>
-            <input type="text" id="recipient" name="recipient" placeholder="Nom du destinataire" required>
+                <label for="amount">Montant :</label>
+                <input type="number" id="amount" name="amount" placeholder="Montant à transférer" required>
 
-            <label for="amount">Montant :</label>
-            <input type="number" id="amount" name="amount" placeholder="Montant à transférer" required>
-
-            <button type="submit">Envoyer le virement</button>
-        </form>
-        <p id="transfer-message" class="error-message"></p> <!-- Message d'erreur pour virement -->
-    </section>
+                <button type="submit">Envoyer le virement</button>
+            </form>
+            <p id="transfer-message" class="error-message"></p> <!-- Message d'erreur pour virement -->
+        </section>
+    </main>
 
     <footer>
         <p>© 2025 Banque en ligne. Tous droits réservés.</p>
