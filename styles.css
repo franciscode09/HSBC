@@ -97,6 +97,30 @@ th, td {
     text-align: left;
     border-bottom: 1px solid #ddd;
 }
+/* Message défilant */
+#scrolling-message {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    animation: scrollMessage 10s linear infinite;
+}
+
+/* Animation pour faire défiler le message */
+@keyframes scrollMessage {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
 
 /* Bas de page */
 .bottom-info {
