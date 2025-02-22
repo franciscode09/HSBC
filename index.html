@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banque en ligne</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Banque en ligne</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#dashboard">Tableau de bord</a></li>
+                <li><a href="#transactions">Transactions</a></li>
+                <li><a href="#transfer">Virement</a></li>
+                <li><a href="#logout" onclick="logout()">Se déconnecter</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="login-section" class="login-container">
+            <h2>Connexion</h2>
+            <form id="loginForm" onsubmit="return validateLogin()">
+                <label for="username">Nom d'utilisateur :</label>
+                <input type="text" id="username" name="username" placeholder="Entrez votre nom d'utilisateur" required>
+
+                <label for="password">Mot de passe :</label>
+                <input type="password" id="password" name="password" placeholder="Entrez votre mot de passe" required>
+
+                <button type="submit">Se connecter</button>
+            </form>
+            <p id="error-message" class="error-message"></p>
+        </section>
+
+        <!-- Tableau de bord - visible après connexion -->
+        <section id="dashboard" class="dashboard hidden">
+            <h2>Bienvenue, <span id="accountName">Utilisateur</span></h2>
+            <div class="account-info">
+                <p><strong>Solde actuel :</strong> <span id="balance">1000 €</span></p>
+                <p><strong>Numéro de compte :</strong> <span id="accountNumber">1234567890</span></p>
+                <p><strong>Date et Heure :</strong> <span id="currentDateTime">Chargement...</span></p>
+            </div>
+
+            <h3>Transactions récentes :</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Description</th>
+                        <th>Montant</th>
+                    </tr>
+                </thead>
+                <tbody id="transactions">
+                    <tr>
+                        <td>2025-02-20</td>
+                        <td>Achat en ligne</td>
+                        <td>-50 €</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-19</td>
+                        <td>Virement reçu</td>
+                        <td>+200 €</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-18</td>
+                        <td>Retrait DAB</td>
+                        <td>-100 €</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section de virement -->
+        <section id="transfer" class="transfer hidden">
+            <h3>Effectuer un virement</h3>
+            <form id="transferForm" onsubmit="return handleTransfer()">
+                <label for="recipient">Destinataire :</label>
+                <input type="text" id="recipient" name="recipient" placeholder="Nom du destinataire" required>
+
+                <label for="amount">Montant :</label>
+                <input type="number" id="amount" name="amount" placeholder="Montant à transférer" required>
+
+                <button type="submit">Envoyer le virement</button>
+            </form>
+            <p id="transfer-message" class="error-message"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Banque en ligne. Tous droits réservés.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
