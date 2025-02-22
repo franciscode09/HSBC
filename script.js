@@ -45,6 +45,9 @@ function showDashboard() {
     document.getElementById('city').textContent = city;
     document.getElementById('nationality').textContent = nationality;
 
+    document.getElementById('accountNumber').textContent = "1234567890";
+    document.getElementById('rib').textContent = "FR76 1234 5678 9876 5432 1234 567";
+
     updateDateTime();
     setInterval(updateDateTime, 1000); // Mettre à jour chaque seconde
 }
@@ -53,10 +56,6 @@ function logout() {
     isLoggedIn = false;
     document.getElementById('login-section').classList.remove('hidden');
     document.getElementById('dashboard').classList.add('hidden');
-}
-
-function showTransferForm() {
-    document.getElementById('transfer').classList.remove('hidden');
 }
 
 function updateDateTime() {
@@ -73,6 +72,10 @@ function updateDateTime() {
 
     const currentDateTime = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
     dateTimeElement.textContent = currentDateTime;
+}
+
+function showTransferForm() {
+    document.getElementById('transfer').classList.remove('hidden');
 }
 
 function handleTransfer() {
