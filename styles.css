@@ -6,23 +6,46 @@ body {
     background-color: #f4f4f4;
 }
 
-/* Arrière-plan de la page */
-body, .login-container, .dashboard {
-    background-image: url('background.jpg'); /* Remplacez 'background.jpg' par le chemin de votre image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: 100vh;
+header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-/* Superposition de couleur pour améliorer la lisibilité */
-body {
-    background-color: rgba(0, 0, 0, 0.4); /* Ajoute un overlay noir semi-transparent */
+header nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
 }
 
-/* Pour la section de connexion */
+header nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo h1 {
+    margin: 0;
+}
+
+footer {
+    background-color: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Style du formulaire de connexion */
 .login-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent pour la lisibilité */
+    background-color: white;
     margin: 50px auto;
     padding: 20px;
     border-radius: 10px;
@@ -31,9 +54,35 @@ body {
     text-align: center;
 }
 
-/* Pour la section tableau de bord (utilisateur) */
+h2 {
+    color: #2c3e50;
+}
+
+input[type="text"], input[type="password"], input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Tableau de bord */
 .dashboard {
-    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+    background-color: white;
     margin: 50px auto;
     padding: 20px;
     border-radius: 10px;
@@ -41,7 +90,6 @@ body {
     width: 70%;
 }
 
-/* Style du tableau de bord */
 .dashboard .account-info {
     margin-bottom: 20px;
 }
@@ -65,9 +113,13 @@ th {
     background-color: #f2f2f2;
 }
 
+.hidden {
+    display: none;
+}
+
 /* Section de virement */
 .transfer {
-    background-color: rgba(255, 255, 255, 0.9); /* Fond blanc semi-transparent */
+    background-color: white;
     margin: 50px auto;
     padding: 20px;
     border-radius: 10px;
@@ -75,27 +127,8 @@ th {
     width: 300px;
 }
 
-/* Autres styles inchangés... */
-
-/* Style du formulaire de connexion */
-input[type="text"], input[type="password"], input[type="number"] {
-    width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-button {
-    width: 100%;
-    padding: 10px;
-    background-color: #3498db;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #2980b9;
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
 }
