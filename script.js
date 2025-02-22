@@ -2,6 +2,14 @@ let isLoggedIn = false;
 let accountName = "Utilisateur";
 let balance = 1000; // Solde initial
 
+// Informations personnelles
+let firstName = "Jean";
+let lastName = "Dupont";
+let birthDate = "01/01/1990";
+let gender = "Masculin";
+let city = "Paris";
+let nationality = "Française";
+
 function validateLogin() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -30,6 +38,14 @@ function showDashboard() {
     document.getElementById('dashboard').classList.remove('hidden');
     document.getElementById('accountName').textContent = accountName;
     document.getElementById('balance').textContent = `${balance} €`;
+
+    // Affichage des informations personnelles
+    document.getElementById('firstName').textContent = firstName;
+    document.getElementById('lastName').textContent = lastName;
+    document.getElementById('birthDate').textContent = birthDate;
+    document.getElementById('gender').textContent = gender;
+    document.getElementById('city').textContent = city;
+    document.getElementById('nationality').textContent = nationality;
 
     // Afficher l'heure et la date actuelles
     updateDateTime();
