@@ -15,14 +15,14 @@
             <ul>
                 <li><a href="#dashboard">Tableau de bord</a></li>
                 <li><a href="#transactions">Transactions</a></li>
-                <li><a href="#transfer" onclick="showTransferForm()">Virement</a></li> <!-- Onglet Virement cliquable -->
+                <li><a href="#transfer">Virement</a></li>
                 <li><a href="#logout" onclick="logout()">Se déconnecter</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
-         <section id="login-section" class="login-container">
+        <section id="login-section" class="login-container">
             <h2>Connexion</h2>
             <form id="loginForm" onsubmit="return validateLogin()">
                 <label for="username">Nom d'utilisateur :</label>
@@ -40,12 +40,6 @@
         <section id="dashboard" class="dashboard hidden">
             <h2>Bienvenue, <span id="accountName">Utilisateur</span></h2>
             <div class="account-info">
-                <p><strong>Nom :</strong> <span id="lastName">Dupont</span></p>
-                <p><strong>Prénom :</strong> <span id="firstName">Jean</span></p>
-                <p><strong>Date de naissance :</strong> <span id="birthDate">01/01/1990</span></p>
-                <p><strong>Sexe :</strong> <span id="gender">Masculin</span></p>
-                <p><strong>Ville :</strong> <span id="city">Paris</span></p>
-                <p><strong>Nationalité :</strong> <span id="nationality">Française</span></p>
                 <p><strong>Solde actuel :</strong> <span id="balance">1000 €</span></p>
                 <p><strong>Numéro de compte :</strong> <span id="accountNumber">1234567890</span></p>
                 <p><strong>Date et Heure :</strong> <span id="currentDateTime">Chargement...</span></p>
@@ -92,7 +86,7 @@
 
                 <button type="submit">Envoyer le virement</button>
             </form>
-            <p id="transfer-message" class="error-message"></p> <!-- Message d'erreur pour virement -->
+            <p id="transfer-message" class="error-message"></p>
         </section>
     </main>
 
