@@ -15,21 +15,19 @@ function validateLogin() {
     const password = document.getElementById('password').value;
     const errorMessage = document.getElementById('error-message');
 
-    // Exemple de validation simple
     if (username === "" || password === "") {
         errorMessage.textContent = "Veuillez remplir tous les champs.";
-        return false; // Empêche l'envoi du formulaire
+        return false;
     }
 
-    // Simuler une connexion
     if (username === "user" && password === "1234") {
         isLoggedIn = true;
         accountName = username;
         showDashboard();
-        return false; // Empêche l'envoi du formulaire
+        return false;
     } else {
         errorMessage.textContent = "Nom d'utilisateur ou mot de passe incorrect.";
-        return false; // Empêche l'envoi du formulaire
+        return false;
     }
 }
 
@@ -47,7 +45,6 @@ function showDashboard() {
     document.getElementById('city').textContent = city;
     document.getElementById('nationality').textContent = nationality;
 
-    // Afficher l'heure et la date actuelles
     updateDateTime();
     setInterval(updateDateTime, 1000); // Mettre à jour chaque seconde
 }
@@ -56,6 +53,10 @@ function logout() {
     isLoggedIn = false;
     document.getElementById('login-section').classList.remove('hidden');
     document.getElementById('dashboard').classList.add('hidden');
+}
+
+function showTransferForm() {
+    document.getElementById('transfer').classList.remove('hidden');
 }
 
 function updateDateTime() {
@@ -79,11 +80,13 @@ function handleTransfer() {
     const amount = parseFloat(document.getElementById('amount').value);
     const transferMessage = document.getElementById('transfer-message');
 
+    // Vérification des champs
     if (!recipient || !amount || amount <= 0) {
         transferMessage.textContent = "Veuillez entrer un destinataire et un montant valide.";
         return false;
     }
 
+    // Vérification du solde
     if (amount > balance) {
         transferMessage.textContent = "Solde insuffisant pour effectuer ce virement.";
         return false;
@@ -94,5 +97,5 @@ function handleTransfer() {
     document.getElementById('balance').textContent = `${balance} €`;
     transferMessage.textContent = `Virement de ${amount} € effectué vers ${recipient}.`;
 
-    return false; // Empêche l'envoi du formulaire
+    return false;
 }
